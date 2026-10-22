@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Flip Flop - Memory Card Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: black;color: white; padding: 20px;min-height: 100vh; display: flex;justify-content: center;align-items: center;">
-<div class="game-container">
-    <header class="dashboard"
-      style="  background-color: #d65454;  padding: 20px;  border-radius: 12px;  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);text-align: center;">
-        <h1 style="
-        font-size: 1.8rem; margin-bottom: 12px; color: black;">Flip Flop Game</h1>
-        <div class="stat">Moves: 
-            <span id="moves-count" style="color: rgb(64, 40, 40);">0</span>
-        </div>
-        <div class="stat">Timer: 
-            <span id="timer" style="color: rgb(64, 40, 40);">00:00</span>
-        </div>
-        <div class="stat">Matches: 
-            <span id="matches-count" style="color: rgb(64, 40, 40);">0</span> / 8
-        </div>
-    </header>
-    <button id="restart-btn" class="btn" style="background-color: rgb(193, 167, 167); color: white;border: none;padding: 10px 20px;border-radius: 6px;font-size: 1rem;font-weight: 600;cursor: pointer;transition: background-color 0.2s ease, transform 0.1s ease;">Restart Game</button>
-</div>
-<div id="win-modal" class="modal hidden">
-    <div class="modal-content" style="background-color: black;padding: 32px;border-radius: 12px; text-align: 
+
+<body
+    style="background-color: black;color: black;display: flex; padding: 20px;min-height: 100vh;justify-content: center;align-items: center;">
+    <div class="game-container" style="width: 100%;max-width: 600px;display: flex;flex-direction: column;gap: 24px;">
+        <header class="dashboard"
+            style="  background-color: #d65454;  padding: 20px;  border-radius: 12px;  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);text-align: center;">
+            <h1 style="font-size: 1.8rem; margin-bottom: 12px; color: black;">Flip Flop Game</h1>
+            <div class="stats-bar" style="font-size: medium;">
+                <div class="stat">Moves:
+                    <span id="moves-count" style="color: rgb(64, 40, 40);">0</span>
+                </div>
+                <div class="stat">Timer:
+                    <span id="timer" style="color: rgb(64, 40, 40);">00:00</span>
+                </div>
+                <div class="stat">Matches:
+                    <span id="matches-count" style="color: rgb(64, 40, 40);">0</span> / 8
+                </div>
+            </div>
+            <button id="restart-btn" class="btn"
+                style="background-color: black; color: white;border: none;padding: 10px 20px;border-radius: 6px;font-size: 1rem;font-weight: 600;cursor: pointer;transition: background-color 0.2s ease, transform 0.1s ease;">Restart
+                Game</button>
+        </header>
+    </div>
+    <div id="win-modal" class="modal hidden">
+        <div class="modal-content" style="background-color: black;padding: 32px;border-radius: 12px; text-align: 
     center;max-width: 380px; width: 90%;box-shadow: 0 20px 25px -5px rgba(198, 190, 190, 0.5); color: #ffffff;">
-    <h2 style="color: aqua; margin-bottom: 8px;">Congratulations</h2>
-    <p>You have matched all the pairs</p>
-    <div class="modal-stats" style="margin: 20px 0;font-size: 1.1rem;display: flex;  flex-direction: column;  gap: 8px;">
-        <p>Total Moves: 
-            <strong id="final-moves" style="color: burlywood;">0</strong>
-        </p>
-        <p>Total Time: 
-            <strong id="final-moves" style="color: burlywood;">00:00</strong>
-        </p>
+            <h2 style="color: aqua; margin-bottom: 8px;">Congratulations</h2>
+            <p>You have matched all the pairs</p>
+            <div class="modal-stats"
+                style="margin: 20px 0;font-size: 1.1rem;display: flex;  flex-direction: column;  gap: 8px;">
+                <p>Total Moves:
+                    <strong id="final-moves" style="color: burlywood;">0</strong>
+                </p>
+                <p>Total Time:
+                    <strong id="final-time" style="color: burlywood;">00:00</strong>
+                </p>
+            </div>
+            <button id="play-again-btn" class="btn">Play Again</button>
+        </div>
     </div>
-    </div>
-</div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
