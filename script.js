@@ -1,4 +1,4 @@
-const CARD_ICONS = ['⚡', '🔥', '🎮', '🚀', '💎', '🎨', '🍕', '🎧'];
+const CARD_ICONS = ['⚡', '🔥'];
 const TOTAL_PAIRS = CARD_ICONS.length;
 
 let cardsArray = [];
@@ -26,8 +26,8 @@ const playAgainBtn = document.getElementById("play-again-btn");
 
 function shuffle(array) {
     const arr = [...array];
-    for (let i = arr.length; i > 0; i--) {
-        const j = Math.floor((Math.random) * (i + 1));
+    for (let i = arr.length -1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
@@ -68,10 +68,11 @@ function createAndRenderBoard() {
         card.dataset.icon = icon;
 
         card.innerHTML = `
-        <div class="inner-text">
+        <div class="card-inner">
         <div class="card-front">❓</div>
         <div class="card-back">${icon}</div>
         </div>`
+        gameBoard.appendChild(card)
     })
     gameBoard.addEventListener("click", handleCardClick);
     gameContainer.appendChild(gameBoard);
@@ -113,7 +114,7 @@ function handleMatch(card1, card2) {
     card1.classList.add("matched");
     card2.classList.add("matched");
     matchedPairs++;
-    matchedPairs.textContent = matchedPairs;
+    matchesDisplay.textContent = matchedPairs;
     flippedCards = [];
     if (matchedPairs === TOTAL_PAIRS) {
         handleWin();
@@ -153,12 +154,11 @@ function handleWin() {
     stopTimer();
     setTimeout(() => {
         finalMoves.textContent = moves;
-        finalTimer.textContent = timerDisplay;
+        finalTimer.textContent = timerDisplay.textContent;
         winModal.classList.remove('hidden')
     }, 500)
 }
 
 restartBtn.addEventListener('click',initGame);
-playAgainBtn.addEventListener('click',initGame);
-
+playAgainBtn.addEventListener('click',initGame); 
 initGame();
