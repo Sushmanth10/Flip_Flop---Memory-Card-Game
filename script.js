@@ -1,4 +1,4 @@
-const CARD_ICONS = ['⚡', '🔥'];
+const CARD_ICONS = ['⚡', '🔥', '🎮', '🚀', '💎', '🎨', '🍕', '🎧'];
 const TOTAL_PAIRS = CARD_ICONS.length;
 
 let cardsArray = [];
